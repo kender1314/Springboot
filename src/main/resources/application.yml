@@ -1,0 +1,34 @@
+spring:
+  resources:
+    static-locations: classpath:/static
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/mytest?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT
+    username: root
+    password: root
+
+#mybatis的配置
+mybatis:
+  type-aliases-package: com.mode.springboot.entity
+  mapper-locations: classpath:mapping/*.xml
+  #pageHelper配置（官网推荐配置）
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
+
+server:
+  #  配置端口号，https默认端口号为443，改为8443端口
+  port: 8443
+  #  配置ssl证书
+  ssl:
+    #    SSL证书springboot.keystore与application.yml放在同级目录下
+    key-store: classpath:springboot.keystore
+    key-store-password: 123456
+    keyStoreType: JKS
+    keyAlias: tomcat
+
+
+
+

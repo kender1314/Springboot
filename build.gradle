@@ -1,0 +1,61 @@
+
+buildscript {
+    repositories {
+        maven{ url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+        maven{ url 'http://maven.aliyun.com/nexus/content/repositories/jcenter'}
+    }
+    dependencies {
+//        classpath 'com.android.tools.build:gradle:3.3.0-alpha13'
+    }
+}
+plugins {
+    id 'org.springframework.boot' version '2.3.2.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.9.RELEASE'
+    id 'java'
+}
+
+group = 'com.mode'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+allprojects {
+    repositories {
+        maven{ url 'http://maven.aliyun.com/nexus/content/groups/public/'}
+        maven{ url 'http://maven.aliyun.com/nexus/content/repositories/jcenter'}
+    }
+}
+//task clean(type: Delete) {
+//    delete rootProject.buildDir
+//}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    }
+    runtimeOnly 'mysql:mysql-connector-java'
+    compile 'com.alibaba:druid:1.1.20'
+    compile 'com.alibaba:fastjson:1.2.7'
+    compile 'org.mybatis:mybatis:3.5.5'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+//    减少set、get、logger创建，根据自己的idea配置
+    compile 'org.projectlombok:lombok:+'
+    annotationProcessor('org.projectlombok:lombok:1.18.12')
+//    分页
+    compile 'com.github.pagehelper:pagehelper:5.2.0'
+//    前段模板引擎
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+//    日志
+    compile("org.springframework.boot:spring-boot-starter-log4j2:0.13.3")
+//    缓存
+    compile 'net.sf.ehcache:ehcache:2.10.6'
+
+}
+
+test {
+    useJUnitPlatform()
+}
