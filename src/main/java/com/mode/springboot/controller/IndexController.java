@@ -26,6 +26,11 @@ public class IndexController {
     @Autowired
     private IndexService indexService;
 
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public String index() {
+        return "/views/index";
+    }
+
     /**
      * 返回方式一
      *
@@ -35,7 +40,7 @@ public class IndexController {
     public ModelAndView index1() {
         Map<String, String> map = new HashMap<>(10);
         map.put("user", "jiang.he");
-        return new ModelAndView("index", map);
+        return new ModelAndView("/views/index", map);
     }
 
     /**

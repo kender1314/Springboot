@@ -1,11 +1,18 @@
 package com.mode.springboot.entity;
-import javax.persistence.*;
+import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
+
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 /**
  * @Author jiang.he
  * @Version 1.0.0 RELEASE
  * @Date 2020/7/11 20:12
  * @Description:
  */
+@Data
 public class User {
 
     @Id
