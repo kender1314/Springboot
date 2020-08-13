@@ -7,6 +7,8 @@ import com.mode.springboot.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Map;
+
 /**
  * @Author jiang.he
  * @Version 1.0.0 RELEASE
@@ -19,7 +21,7 @@ public class LoginServiceImpl implements LoginService {
     private UserDao userDao;
 
     @Override
-    public User login(JSONObject params) {
+    public User login(Map<String, Object> params) {
         Object name = params.get("username");
         Object password = params.get("password");
         if (name != null&& password != null) {

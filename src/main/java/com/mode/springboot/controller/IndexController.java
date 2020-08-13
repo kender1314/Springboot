@@ -28,7 +28,7 @@ public class IndexController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String index() {
-        return "/views/index";
+        return "/views/login";
     }
 
     /**
