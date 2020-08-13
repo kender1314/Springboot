@@ -26,8 +26,8 @@ public class IndexController {
     @Autowired
     private IndexService indexService;
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String index() {
+    @RequestMapping(value = "/toLogin", method = RequestMethod.GET)
+    public String toLogin() {
         return "/views/login";
     }
 
