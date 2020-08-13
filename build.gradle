@@ -50,8 +50,6 @@ dependencies {
     compile 'com.github.pagehelper:pagehelper:5.2.0'
 //    前段模板引擎
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf:2.3.2.RELEASE'
-//    日志
-//    compile("org.springframework.boot:spring-boot-starter-log4j2:0.13.3")
 //    缓存
     compile 'net.sf.ehcache:ehcache:2.10.6'
 

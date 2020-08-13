@@ -1,4 +1,4 @@
-package com.mode.springboot.configuration;
+package com.mode.springboot.autoconfigure.configuration;
 
 import com.mode.springboot.entity.User;
 import lombok.extern.slf4j.Slf4j;
@@ -8,7 +8,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 
 /**
  * @Author jiang.he

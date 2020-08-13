@@ -1,4 +1,4 @@
-package com.mode.springboot.configuration;
+package com.mode.springboot.autoconfigure.configuration;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistration;
