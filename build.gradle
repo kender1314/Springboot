@@ -37,6 +37,7 @@ dependencies {
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
     }
+    annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
     runtimeOnly 'mysql:mysql-connector-java:8.0.21'
     compile 'com.alibaba:druid:1.1.20'
     compile 'com.alibaba:fastjson:1.2.7'

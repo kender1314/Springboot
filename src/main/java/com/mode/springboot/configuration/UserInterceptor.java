@@ -1,14 +1,14 @@
 package com.mode.springboot.configuration;
 
+import com.mode.springboot.autoconfigure.configure.CommonProperties;
 import com.mode.springboot.entity.User;
-import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.Nullable;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 
 /**
  * @Author jiang.he
@@ -16,25 +16,29 @@ import java.io.IOException;
  * @Date 2020/8/13 22:59
  * @Description:
  */
-@Slf4j
 public class UserInterceptor implements HandlerInterceptor {
+    @Autowired
+    private CommonProperties properties;
 
     /**
-     * ÔÚÇëÇó´¦ÀíÖ®Ç°½øĞĞµ÷ÓÃ£¨Controller·½·¨µ÷ÓÃÖ®Ç°£©
+     * åœ¨è¯·æ±‚å¤„ç†ä¹‹å‰è¿›è¡Œè°ƒç”¨ï¼ˆControlleræ–¹æ³•è°ƒç”¨ä¹‹å‰ï¼‰
      */
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
             throws Exception {
-        User user = (User) request.getSession().getAttribute("user");
-        if (user != null) {
-            return true;
-        }
-        response.sendRedirect(request.getContextPath() + "/toLogin");
-        return false;
+//        if (properties.isInterceptor()) {
+            User user = (User) request.getSession().getAttribute("user");
+            if (user != null) {
+                return true;
+            }
+            response.sendRedirect(request.getContextPath() + "/toLogin");
+            return false;
+//        }
+//        return true;
     }
 
     /**
-     * ÇëÇó´¦ÀíÖ®ºó½øĞĞµ÷ÓÃ£¬µ«ÊÇÔÚÊÓÍ¼±»äÖÈ¾Ö®Ç°£¨Controller·½·¨µ÷ÓÃÖ®ºó£©
+     * è¯·æ±‚å¤„ç†ä¹‹åè¿›è¡Œè°ƒç”¨ï¼Œä½†æ˜¯åœ¨è§†å›¾è¢«æ¸²æŸ“ä¹‹å‰ï¼ˆControlleræ–¹æ³•è°ƒç”¨ä¹‹åï¼‰
      */
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
@@ -42,7 +46,7 @@ public class UserInterceptor implements HandlerInterceptor {
     }
 
     /**
-     * ÔÚÕû¸öÇëÇó½áÊøÖ®ºó±»µ÷ÓÃ£¬Ò²¾ÍÊÇÔÚDispatcherServlet äÖÈ¾ÁË¶ÔÓ¦µÄÊÓÍ¼Ö®ºóÖ´ĞĞ£¨Ö÷ÒªÊÇÓÃÓÚ½øĞĞ×ÊÔ´ÇåÀí¹¤×÷£©
+     * åœ¨æ•´ä¸ªè¯·æ±‚ç»“æŸä¹‹åè¢«è°ƒç”¨ï¼Œä¹Ÿå°±æ˜¯åœ¨DispatcherServlet æ¸²æŸ“äº†å¯¹åº”çš„è§†å›¾ä¹‹åæ‰§è¡Œï¼ˆä¸»è¦æ˜¯ç”¨äºè¿›è¡Œèµ„æºæ¸…ç†å·¥ä½œï¼‰
      */
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler,

@@ -16,13 +16,11 @@ public class LoginInterceptors implements WebMvcConfigurer {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry){
-        //×¢²áUserInterceptorÀ¹½ØÆ÷
+        //æ³¨å†ŒUserInterceptoræ‹¦æˆªå™¨
         InterceptorRegistration registration = registry.addInterceptor(new UserInterceptor());
-        //ËùÓĞÂ·¾¶¶¼±»À¹½Ø
+        //æ‰€æœ‰è·¯å¾„éƒ½è¢«æ‹¦æˆª
         registration.addPathPatterns("/**");
-        //Ìí¼Ó²»À¹½ØÂ·¾¶
-        registration.excludePathPatterns("/views/login",
-                "/views/register",
-                "/toLogin");
+        //æ·»åŠ ä¸æ‹¦æˆªè·¯å¾„
+        registration.excludePathPatterns("/toLogin");
     }
 }

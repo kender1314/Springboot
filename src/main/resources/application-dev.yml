@@ -1,0 +1,6 @@
+sb:
+  common:
+    interceptor: false
+
+server:
+  port: 8082
