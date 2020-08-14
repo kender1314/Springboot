@@ -4,6 +4,7 @@ import com.mode.springboot.autoconfigure.configure.CommonProperties;
 import com.mode.springboot.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.Nullable;
+import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -17,8 +18,12 @@ import javax.servlet.http.HttpServletResponse;
  * @Description:
  */
 public class UserInterceptor implements HandlerInterceptor {
-    @Autowired
-    private CommonProperties properties;
+
+    private final CommonProperties commonProperties;
+
+    public UserInterceptor(CommonProperties commonProperties) {
+        this.commonProperties = commonProperties;
+    }
 
     /**
      * 在请求处理之前进行调用（Controller方法调用之前）
@@ -26,15 +31,15 @@ public class UserInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
             throws Exception {
-//        if (properties.isInterceptor()) {
+        if (commonProperties.isInterceptor()) {
             User user = (User) request.getSession().getAttribute("user");
             if (user != null) {
                 return true;
             }
             response.sendRedirect(request.getContextPath() + "/toLogin");
             return false;
-//        }
-//        return true;
+        }
+        return true;
     }
 
     /**

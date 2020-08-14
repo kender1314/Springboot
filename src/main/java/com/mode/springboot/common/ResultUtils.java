@@ -10,8 +10,8 @@ public class ResultUtils {
 
     /**
      * 操作成功
-     * @param data
-     * @return
+     * @param data data
+     * @return Result<Object>
      */
     public static Result<Object> success(Object data) {
         Result<Object> result = new Result<Object>();
@@ -24,7 +24,7 @@ public class ResultUtils {
 
     /**
      * 程序错误
-     * @return
+     * @return Result<Object>
      */
     public static Result<Object> internalerror() {
         Result<Object> result = new Result<Object>();
@@ -35,7 +35,7 @@ public class ResultUtils {
 
     /**
      *参数错误
-     * @return
+     * @return Result<Object>
      */
     public static Result<Object> paramerror() {
         Result<Object> result = new Result<Object>();
@@ -46,7 +46,7 @@ public class ResultUtils {
 
     /**
      * url不存在
-     * @return
+     * @return Result<Object>
      */
     public static Result<Object> urlnotexists() {
         Result<Object> result = new Result<Object>();
@@ -57,7 +57,7 @@ public class ResultUtils {
 
     /**
      * 登录过期
-     * @return
+     * @return Result<Object>
      */
     public static Result<Object> unloginerror() {
         Result<Object> result = new Result<Object>();
@@ -68,7 +68,7 @@ public class ResultUtils {
 
     /**
      * 权限不足
-     * @return
+     * @return Result<Object>
      */
     public static Result<Object> authforbidden() {
         Result<Object> result = new Result<Object>();
@@ -79,7 +79,7 @@ public class ResultUtils {
 
     /**
      * 服务繁忙
-     * @return
+     * @return Result<Object>
      */
     public static Result<Object> serviceerror() {
         Result<Object> result = new Result<Object>();
@@ -90,7 +90,7 @@ public class ResultUtils {
 
     /**
      * 管理员信息错误
-     * @return
+     * @return Result<Object>
      */
     public static Result<Object> managerInfoError() {
         Result<Object> result = new Result<Object>();
@@ -101,7 +101,7 @@ public class ResultUtils {
 
     /**
      * 请求方法错误
-     * @return
+     * @return Result<Object>
      */
     public static Result<Object> requestMethodError() {
         Result<Object> result = new Result<Object>();
@@ -112,7 +112,7 @@ public class ResultUtils {
 
     /**
      * 参数缺失
-     * @return
+     * @return Result<Object>
      */
     public static Result<Object> paramLossError() {
         Result<Object> result = new Result<Object>();
@@ -124,7 +124,7 @@ public class ResultUtils {
 
     /**
      * 登录失败
-     * @return
+     * @return Result<Object>
      */
     public static Result<Object> loginFailed() {
         Result<Object> result = new Result<Object>();
@@ -136,7 +136,7 @@ public class ResultUtils {
 
     /**
      * 用户名已存在
-     * @return
+     * @return Result<Object>
      */
     public static Result<Object> usernameExist() {
         Result<Object> result = new Result<Object>();

@@ -8,6 +8,7 @@ Springboot框架模板
 5. ehcache
 6. pagehelper
 7. json
+8. devtools(热部署)
 --------------------------------------------
 涉及功能
 1. 信息统一返回接口

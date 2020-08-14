@@ -20,6 +20,11 @@ spring:
     url: jdbc:mysql://123.57.46.169:3306/mytest?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT
     username: root
     password: 123456
+#关闭热部署
+  devtools:
+    restart:
+      enabled: false
+
 
 #mybatis的配置
 mybatis:

@@ -1,5 +1,7 @@
 package com.mode.springboot.autoconfigure.configure;
 
+import com.mode.springboot.configuration.UserInterceptor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -12,8 +14,11 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class CommonConfiguration {
 
-//    @Bean
-//    public CommonProperties commonProperties(){
-//        return new CommonProperties();
-//    }
+    @Autowired
+    private CommonProperties commonProperties;
+
+    @Bean
+    public UserInterceptor userInterceptor(){
+        return new UserInterceptor(commonProperties);
+    }
 }

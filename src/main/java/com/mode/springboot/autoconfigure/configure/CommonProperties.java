@@ -1,6 +1,7 @@
 package com.mode.springboot.autoconfigure.configure;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.devtools.autoconfigure.DevToolsProperties;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
@@ -18,8 +19,8 @@ import javax.annotation.PostConstruct;
  * @Date 2020/7/11 20:12
  * @Description:
  */
-@Component
 @Primary
+@Component
 @ConfigurationProperties("sb.common")
 public class CommonProperties {
 
