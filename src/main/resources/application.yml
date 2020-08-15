@@ -1,10 +1,14 @@
 spring:
   resources:
     static-locations: classpath:/static/
+  profiles:
+    #开发环境，相当于优先引用application-dev.yml
+    active: dev
 
     #浏览器中项目url时，需要添加#（e.g：http://localhost:8088/#/index1）
 #    mvc:
 #      static-path-pattern: /#/**
+
   thymeleaf:
     #开发时关闭缓存,不然没法看到实时页面
     #(e.g:比如你修改了一个文件，已经update到tomcat，但刷新页面还是之前的页面，就是因为缓存引起的。)
@@ -16,6 +20,12 @@ spring:
     url: jdbc:mysql://123.57.46.169:3306/mytest?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT
     username: root
     password: 123456
+#关闭热部署
+  devtools:
+    restart:
+      enabled: false
+
+
 #mybatis的配置
 mybatis:
   type-aliases-package: com.mode.springboot.entity
@@ -27,6 +37,7 @@ pagehelper:
   supportMethodsArguments: true
   params: count=countSql
   returnPageInfo: check
+
 server:
   #  配置端口号，https默认端口号为443，改为8443端口
   port: 8088

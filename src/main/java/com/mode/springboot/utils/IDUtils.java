@@ -6,6 +6,8 @@ import org.slf4j.LoggerFactory;
 import java.util.UUID;
 
 /**
+ * 生成uuid
+ *
  * @Author hejiang
  * @Version 1.0.0 RELEASE
  * @Date 2020/4/21 17:55

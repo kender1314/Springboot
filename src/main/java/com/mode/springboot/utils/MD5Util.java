@@ -5,6 +5,8 @@ import org.springframework.util.DigestUtils;
 import java.math.BigDecimal;
 
 /**
+ * MD5加盐加密
+ *
  * @Author jiang.he
  * @Version 1.0.0 RELEASE
  * @Date 2020/8/13 22:15
@@ -17,7 +19,9 @@ public class MD5Util {
 
     private static final int EXCEEDED = 10;
 
-    private final static String SALT = randomSalt();
+//    private final static String SALT = randomSalt();
+
+    private final static String SALT = "0123456789abcdefghijklmnopqrstuvwxyz+-*/";
 
     /**
      * 进行md5加密
@@ -29,6 +33,10 @@ public class MD5Util {
         return DigestUtils.md5DigestAsHex(base.getBytes());
     }
 
+    /**
+     * 随机盐不靠谱
+     * @return 盐
+     */
     private static String randomSalt() {
         char[] saltArr = new char[MD5Util.EXCEEDED];
         for (int i = 0; i < saltArr.length; i++) {

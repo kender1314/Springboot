@@ -1,5 +1,7 @@
 package com.mode.springboot.autoconfigure.configuration;
 
+import com.mode.springboot.autoconfigure.configure.CommonProperties;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -14,15 +16,19 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 public class LoginInterceptors implements WebMvcConfigurer {
 
+    @Autowired
+    private CommonProperties commonProperties;
+
     @Override
     public void addInterceptors(InterceptorRegistry registry){
-        //×¢²áUserInterceptorÀ¹½ØÆ÷
-        InterceptorRegistration registration = registry.addInterceptor(new UserInterceptor());
-        //ËùÓĞÂ·¾¶¶¼±»À¹½Ø
+        //æ³¨å†ŒUserInterceptoræ‹¦æˆªå™¨
+        InterceptorRegistration registration = registry.addInterceptor(new UserInterceptor(commonProperties));
+        //æ‰€æœ‰è·¯å¾„éƒ½è¢«æ‹¦æˆª
         registration.addPathPatterns("/**");
-        //Ìí¼Ó²»À¹½ØÂ·¾¶
-        registration.excludePathPatterns("/views/login",
-                "/views/register",
-                "/toLogin");
+        //æ·»åŠ ä¸æ‹¦æˆªè·¯å¾„
+        registration.excludePathPatterns("/toLogin",
+                "/toRegister",
+                "toIndex",
+                "/user/login");
     }
 }

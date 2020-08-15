@@ -24,9 +24,6 @@ allprojects {
         maven{ url 'http://maven.aliyun.com/nexus/content/repositories/jcenter'}
     }
 }
-//task clean(type: Delete) {
-//    delete rootProject.buildDir
-//}
 
 repositories {
     mavenCentral()
@@ -37,6 +34,7 @@ dependencies {
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
     }
+    annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
     runtimeOnly 'mysql:mysql-connector-java:8.0.21'
     compile 'com.alibaba:druid:1.1.20'
     compile 'com.alibaba:fastjson:1.2.7'
@@ -52,7 +50,8 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf:2.3.2.RELEASE'
 //    缓存
     compile 'net.sf.ehcache:ehcache:2.10.6'
-
+//热部署
+    compile 'org.springframework.boot:spring-boot-devtools:2.3.2.RELEASE'
 }
 
 test {

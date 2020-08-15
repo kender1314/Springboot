@@ -1,6 +1,7 @@
 package com.mode.springboot.service.Impl;
 
 import com.alibaba.fastjson.JSONObject;
+import com.mode.springboot.autoconfigure.configure.CommonProperties;
 import com.mode.springboot.dao.UserDao;
 import com.mode.springboot.entity.User;
 import com.mode.springboot.service.LoginService;

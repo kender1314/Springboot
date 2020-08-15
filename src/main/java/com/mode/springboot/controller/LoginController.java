@@ -23,7 +23,7 @@ public class LoginController {
     @Autowired
     private LoginService loginService;
 
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
     public ModelAndView login(@RequestParam Map<String, Object> params){
         JSONObject res = new JSONObject();
         res.put("data", loginService.login(params));
