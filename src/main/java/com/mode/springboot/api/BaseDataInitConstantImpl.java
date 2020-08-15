@@ -7,5 +7,5 @@ package com.mode.springboot.api;
  * @Description:
  */
 public class BaseDataInitConstantImpl implements BaseDataInitConstant {
-
+    
 }
