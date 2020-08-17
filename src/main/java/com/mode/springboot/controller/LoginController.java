@@ -27,6 +27,6 @@ public class LoginController {
     public ModelAndView login(@RequestParam Map<String, Object> params){
         JSONObject res = new JSONObject();
         res.put("data", loginService.login(params));
-        return new ModelAndView("/views/index", res);
+        return new ModelAndView("/views/websocket", res);
     }
 }

@@ -4,6 +4,7 @@ import com.mode.springboot.configuration.UserInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.socket.server.standard.ServerEndpointExporter;
 
 /**
  * @Author jiang.he
@@ -20,5 +21,10 @@ public class CommonConfiguration {
     @Bean
     public UserInterceptor userInterceptor(){
         return new UserInterceptor(commonProperties);
+    }
+
+    @Bean
+    public ServerEndpointExporter serverEndpointExporter() {
+        return new ServerEndpointExporter();
     }
 }
