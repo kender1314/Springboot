@@ -1,4 +1,4 @@
-package com.mode.springboot.utils;
+package com.mode.springboot.component;
 
 import java.io.IOException;
 import java.util.concurrent.CopyOnWriteArraySet;
@@ -20,7 +20,7 @@ import org.springframework.stereotype.Component;
  * @Description:
  */
 @Slf4j
-@ServerEndpoint(value="/webSocket")
+@ServerEndpoint(value="/webSocket1")
 @Component
 public class WebSocketUtil{
     //静态变量，用来记录当前在线连接数。应该把它设计成线程安全的。
@@ -65,11 +65,7 @@ public class WebSocketUtil{
     public void onMessage(String message, Session session) {
         System.out.println("来自客户端的消息:" + message);
         //发送消息
-        try {
-            session.getBasicRemote().sendText(message);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        session.getAsyncRemote().sendText(message);
     }
 
     /**
@@ -87,8 +83,7 @@ public class WebSocketUtil{
      * @throws IOException
      */
     public void sendMessage(String message) throws IOException {
-        this.session.getBasicRemote().sendText(message);
-        //this.session.getAsyncRemote().sendText(message);
+        this.session.getAsyncRemote().sendText(message);
     }
 
 
