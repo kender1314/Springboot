@@ -2,4 +2,4 @@ sb:
   common:
     interceptor: false
     init-data: false
-    devToolsProperties:
+
