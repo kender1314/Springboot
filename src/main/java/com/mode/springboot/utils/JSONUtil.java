@@ -9,7 +9,7 @@ import org.springframework.util.CollectionUtils;
 import java.util.Map;
 
 /**
- * Json工具�?
+ * Json工具类
  *
  * @Author jiang.he
  * @Version 1.0.0 RELEASE
@@ -29,17 +29,17 @@ public class JSONUtil {
 //            JSONObject js = JSONUtil.removeJSONValue(json, "data.name");
             System.out.println(json);
         } catch (Exception e) {
-            System.out.println("出错�?");
+            System.out.println("出错！");
         }
     }
 
     /**
-     * 根据带有�?.”的keys获取对应的�??
+     * 根据带有“.”的keys获取对应的值
      *
      * @param jo        {@link JSONObject}
-     * @param keys      带有�?.”的keys(e.g：hits._source.name)
-     * @param elseValue 如果没有根据找到相应的�?�，则返回这个�??
-     * @return 根据eys获取对应的�?�，否则返回elseValue
+     * @param keys      带有“.”的keys(e.g：hits._source.name)
+     * @param elseValue 如果没有根据找到相应的值，则返回这个值
+     * @return 根据eys获取对应的值，否则返回elseValue
      */
     public static <T> T getJSONValue(JSONObject jo, String keys, T elseValue) {
         Object value = getJSONValue(jo, keys);
@@ -56,11 +56,11 @@ public class JSONUtil {
     }
 
     /**
-     * 根据带有�?.”的keys获取对应的�??
+     * 根据带有“.”的keys获取对应的值
      *
      * @param jo   {@link JSONObject}
-     * @param keys 有�??.”的keys(e.g：hits._source.name)
-     * @return 根据eys获取对应的�??
+     * @param keys 有“.”的keys(e.g：hits._source.name)
+     * @return 根据eys获取对应的值
      */
     public static Object getJSONValue(JSONObject jo, String keys) {
         Object res;
@@ -151,11 +151,11 @@ public class JSONUtil {
     }
 
     /**
-     * 根据带有�?.”的keys为JSONObject设置�?
+     * 根据带有“.”的keys为JSONObject设置值
      *
      * @param jo    {@link JSONObject}
-     * @param keys  带有�?.”的keys(e.g：hits._source.name)
-     * @param value 要设置的�?
+     * @param keys  带有“.”的keys(e.g：hits._source.name)
+     * @param value 要设置的值
      * @return new {@link JSONObject}
      */
     public static JSONObject setJSONValue(JSONObject jo, String keys, Object value) {
@@ -182,10 +182,10 @@ public class JSONUtil {
     }
 
     /**
-     * 根据带有�?.”的keys删除JSONObject中的�?
+     * 根据带有“.”的keys删除JSONObject中的值
      *
      * @param jo   {@link JSONObject}
-     * @param keys 带有�?.”的keys(e.g：hits._source.name)
+     * @param keys 带有“.”的keys(e.g：hits._source.name)
      * @return new {@link JSONObject}
      */
     public static JSONObject removeJSONValue(JSONObject jo, String keys) {
@@ -212,10 +212,10 @@ public class JSONUtil {
      * 使用递归，对传入的JSONObject中的指定key进行移除，以及替换成为new key
      *
      * @param json    {@link JSONObject}
-     * @param oldKeys 旧的key（key的父key+将被替换的key�?
+     * @param oldKeys 旧的key（key的父key+将被替换的key）
      *                e.g：我要将json中所有data_histogram下的interval替换为fixed_interval
-     *                传入的�?�格式：data_histogram.interval
-     * @param newKeys 新的keys（旧的父key + 新的key�?
+     *                传入的值格式：data_histogram.interval
+     * @param newKeys 新的keys（旧的父key + 新的key）
      *                传入值格式：data_histogram.fixed_interval
      * @return 替换后的 {@link JSONObject}
      */
@@ -225,7 +225,7 @@ public class JSONUtil {
         }
         if (oldKeys == null || newKeys == null ||
                 oldKeys.split("\\.").length != 2 || newKeys.split("\\.").length != 2) {
-            log.warn("输入的oldKeys�?" + oldKeys + "或newKeys�?" + newKeys + "不符合规范！");
+            log.warn("输入的oldKeys：" + oldKeys + "或newKeys：" + newKeys + "不符合规范！");
             return json;
         }
         String oldParentKey = oldKeys.split("\\.")[0];
