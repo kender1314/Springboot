@@ -1,6 +1,5 @@
 package com.mode.springboot.autoconfigure.configure;
 
-import com.mode.springboot.autoconfigure.configuration.UserInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

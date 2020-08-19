@@ -1,6 +1,5 @@
-package com.mode.springboot.autoconfigure.configuration;
+package com.mode.springboot.autoconfigure.configure;
 
-import com.mode.springboot.autoconfigure.configure.CommonProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistration;
