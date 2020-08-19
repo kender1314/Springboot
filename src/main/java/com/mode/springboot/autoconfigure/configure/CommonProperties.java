@@ -1,11 +1,8 @@
 package com.mode.springboot.autoconfigure.configure;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.boot.devtools.autoconfigure.DevToolsProperties;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
-
-import javax.annotation.PostConstruct;
 
 /**
  * 注解说明：

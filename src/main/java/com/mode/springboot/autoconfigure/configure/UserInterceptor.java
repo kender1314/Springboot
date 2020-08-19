@@ -1,4 +1,4 @@
-package com.mode.springboot.configuration;
+package com.mode.springboot.autoconfigure.configure;
 
 import com.mode.springboot.autoconfigure.configure.CommonProperties;
 import com.mode.springboot.entity.User;

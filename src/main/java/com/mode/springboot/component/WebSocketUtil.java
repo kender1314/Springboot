@@ -20,7 +20,7 @@ import org.springframework.stereotype.Component;
  * @Description:
  */
 @Slf4j
-@ServerEndpoint(value="/webSocket1")
+@ServerEndpoint(value="/webSocket")
 @Component
 public class WebSocketUtil{
     //静态变量，用来记录当前在线连接数。应该把它设计成线程安全的。

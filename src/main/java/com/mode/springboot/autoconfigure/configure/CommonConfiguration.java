@@ -1,8 +1,9 @@
 package com.mode.springboot.autoconfigure.configure;
 
-import com.mode.springboot.configuration.UserInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.socket.server.standard.ServerEndpointExporter;
 
@@ -13,6 +14,14 @@ import org.springframework.web.socket.server.standard.ServerEndpointExporter;
  * @Description:
  */
 @Configuration
+@EnableConfigurationProperties({CommonProperties.class})
+@ComponentScan(basePackages={
+        "com.mode.springboot.component",
+        "com.mode.springboot.controller",
+        "com.mode.springboot.dao",
+        "com.mode.springboot.service",
+        "com.mode.springboot.utils",
+        "com.mode.springboot.support"})
 public class CommonConfiguration {
 
     @Autowired
