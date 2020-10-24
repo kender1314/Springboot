@@ -17,7 +17,7 @@ spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://123.57.46.169:3306/mytest?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT
+    url: jdbc:mysql://localhost:3306/mytest?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT
     username: root
     password: 123456
 #关闭热部署
@@ -25,6 +25,13 @@ spring:
     restart:
       enabled: false
 
+#配置redis
+  redis:
+    host: 192.168.59.100
+    port: 6379
+    password:
+    pool:
+      max-active: 8 ## 设置最大连接数，0为无限
 
 #mybatis的配置
 mybatis:

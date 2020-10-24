@@ -51,6 +51,7 @@ dependencies {
     compile 'net.sf.ehcache:ehcache:2.10.6'
 //    热部署
     compile 'org.springframework.boot:spring-boot-devtools:2.3.2.RELEASE'
+    compile 'org.springframework.boot:spring-boot-starter-data-redis'
 }
 
 test {
