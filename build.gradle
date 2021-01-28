@@ -1,3 +1,12 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'maven'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group = 'com.mode'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
 
 buildscript {
     repositories {
@@ -5,18 +14,9 @@ buildscript {
         maven{ url 'http://maven.aliyun.com/nexus/content/repositories/jcenter'}
     }
     dependencies {
-//        classpath 'com.android.tools.build:gradle:3.3.0-alpha13'
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.4.0")
     }
 }
-plugins {
-    id 'org.springframework.boot' version '2.3.2.RELEASE'
-    id 'io.spring.dependency-management' version '1.0.9.RELEASE'
-    id 'java'
-}
-
-group = 'com.mode'
-version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '1.8'
 
 allprojects {
     repositories {
@@ -52,8 +52,21 @@ dependencies {
 //    热部署
     compile 'org.springframework.boot:spring-boot-devtools:2.3.2.RELEASE'
     compile 'org.springframework.boot:spring-boot-starter-data-redis'
+    compile 'commons-net:commons-net:3.6'
 }
 
 test {
     useJUnitPlatform()
+}
+
+jar{
+    //不添加这个配置，sample无法正常引用
+    enabled=true
+    manifest{
+        attributes 'Manifest-Version': 1.0
+        attributes 'Implementation-Vendor': 'QL Corporation'
+        attributes 'Implementation-Title': 'Springboot Runtime Environment'
+        attributes 'Implementation-Version': "$version"
+        attributes 'Java-Version': '1.8.0_251'
+    }
 }

@@ -51,8 +51,8 @@ public class IndexController {
      */
     @RequestMapping(value = "/index2", method = RequestMethod.GET)
     public ResponseEntity<?> index2() {
-        JSONObject jsonObject = getJsonObject();
-        return new ResponseEntity<>(jsonObject.get("data"), HttpStatus.valueOf(jsonObject.getIntValue("code")));
+        JSONObject res = getJsonObject();
+        return new ResponseEntity<>(res.get("data"), HttpStatus.valueOf(res.getIntValue("code")));
     }
 
     /**
@@ -73,7 +73,7 @@ public class IndexController {
     private JSONObject getJsonObject() {
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("data", "这是一个data测试！");
-        jsonObject.put("code", "这是一个code测试！");
+        jsonObject.put("code", 200);
         return jsonObject;
     }
 
